@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">DeSim</string>
+    <string name="ru">ru</string>
+    <string name="us">us</string>
+    <string name="de">de</string>
+    <string name="author">
+        Author: @aexsfx\n
+        Special thanks: nekoymade
+    </string>
+    <string name="set_custom">
+        Set custom region
+    </string>
+</resources>
