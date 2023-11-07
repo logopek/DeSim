@@ -106,7 +106,21 @@ public class MainActivity extends AppCompatActivity {
                 .setPositiveButton("Set", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int whichButton) {
                         String region = txt.getText().toString();
+                        if (region.length() > 5) {
+                            dialogError("Your region can`not be more then 5 symbols");
+                            return;
+                        }
+                        if (region.contains("|")){
+                            dialogError("No split commands!");
+                            return;
+                        }
+
+                        if (region.contains("su") || region.contains("-c")){
+                            dialogError("You can`t input commands");
+                            return;
+                        }
                         try{
+
                             Runtime.getRuntime().exec(String.format("su -c resetprop gsm.sim.operator.iso-country %s", region));
 
                             dialogOK(String.format("Successfully set %s", region));
